@@ -1,7 +1,7 @@
 const imageContainer = document.getElementById("image-container");
 const loader = document.getElementById("loader");
 const themeEl = document.getElementById("themebtn");
-const titleEl = document.getElementById('title')
+const titleEl = document.getElementById("title");
 
 let ready = false;
 let imagesLoaded = 0;
@@ -11,8 +11,8 @@ let photosArray = [];
 // Unsplash API
 
 const count = 30;
-const apiKey = "XZBOGH2vrKIBSja_Bx8y2i4pFtQ5V7cOvx7oXyEg1Zk";
-// const apiUrl = `https://api.unsplash.com/photos/random?client_id=${apiKey}&count=${count}`;
+const apiKey = "";
+const apiUrl = `https://api.unsplash.com/photos/random?client_id=${apiKey}&count=${count}`;
 
 // Check if all images are loaded
 function imageLoaded() {
@@ -38,8 +38,6 @@ function displayPhotos() {
   photosArray.forEach((photo) => {
     // Create <a> to link to Unsplash
     const item = document.createElement("a");
-    // item.setAttribute("href", photo.links.html);
-    // item.setAttribute("target", "_blank");
     setAttributes(item, {
       href: photo.links.html,
       target: "_blank",
@@ -47,13 +45,11 @@ function displayPhotos() {
 
     // Create <img> for photo
     const img = document.createElement("img");
-    // img.setAttribute("src", photo.urls.regular);
-    // img.setAttribute("alt", photo.alt_description);
-    // img.setAttribute("title", photo.alt_description);
     setAttributes(img, {
       src: photo.urls.regular,
       alt: photo.alt_description,
       title: photo.alt_description,
+    <button>Download kro</button>
     });
 
     // Event Listener, check when each is finished loading
@@ -92,15 +88,17 @@ getPhotos();
 function themeChanger() {
   if (themeEl.innerText == "dark") {
     console.log("light theme currently");
-    document.body.style.backgroundColor = "black";
-    titleEl.style.color = 'whitesmoke';
+    document.body.style.backgroundColor = "#050505";
+    titleEl.style.color = "whitesmoke";
     themeEl.textContent = "light";
-  }
-  else if (themeEl.innerText == "light") {
+    themeEl.style.color = "#050505";
+    themeEl.style.backgroundColor = "whitesmoke";
+  } else if (themeEl.innerText == "light") {
     console.log("dark theme currently");
     document.body.style.backgroundColor = "whitesmoke";
-
-    titleEl.style.color = 'black';
+    titleEl.style.color = "#050505";
+    themeEl.style.color = "whitesmoke";
+    themeEl.style.backgroundColor = "#050505";
     themeEl.innerText = "dark";
   }
 }
