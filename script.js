@@ -8,6 +8,35 @@ let imagesLoaded = 0;
 let totalImages = 0;
 let photosArray = [];
 
+
+
+function themeChanger() {
+  console.log("calling");
+  if (themeEl.innerText == "dark") {
+    document.body.style.backgroundColor = "#050505";
+    titleEl.style.color = "whitesmoke";
+    themeEl.textContent = "light";
+    themeEl.style.color = "#050505";
+    themeEl.style.backgroundColor = "whitesmoke";
+  }
+   else if (themeEl.innerText == "light") {
+    document.body.style.backgroundColor = "whitesmoke";
+    titleEl.style.color = "#050505";
+    themeEl.style.color = "whitesmoke";
+    themeEl.style.backgroundColor = "#050505";
+    themeEl.innerText = "dark";
+  }
+}
+
+
+
+
+
+
+
+
+
+
 // Unsplash API
 
 const count = 30;
@@ -49,7 +78,6 @@ function displayPhotos() {
       src: photo.urls.regular,
       alt: photo.alt_description,
       title: photo.alt_description,
-    <button>Download kro</button>
     });
 
     // Event Listener, check when each is finished loading
@@ -84,21 +112,3 @@ window.addEventListener("scroll", () => {
 });
 // On Load
 getPhotos();
-
-function themeChanger() {
-  if (themeEl.innerText == "dark") {
-    console.log("light theme currently");
-    document.body.style.backgroundColor = "#050505";
-    titleEl.style.color = "whitesmoke";
-    themeEl.textContent = "light";
-    themeEl.style.color = "#050505";
-    themeEl.style.backgroundColor = "whitesmoke";
-  } else if (themeEl.innerText == "light") {
-    console.log("dark theme currently");
-    document.body.style.backgroundColor = "whitesmoke";
-    titleEl.style.color = "#050505";
-    themeEl.style.color = "whitesmoke";
-    themeEl.style.backgroundColor = "#050505";
-    themeEl.innerText = "dark";
-  }
-}
